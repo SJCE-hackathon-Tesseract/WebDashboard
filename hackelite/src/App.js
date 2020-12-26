@@ -1,24 +1,34 @@
-import logo from './logo.svg';
+import React ,{Fragment}from "react";
 import './App.css';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
+// component imports
+
+import Register from "./components/auth/Register";
+import Dashboard from "./components/dashboard/Dashboard";
+import Landing from "./components/layout/Landing";
+import Workers from "./components/workers/Workerslist";
+import WorkerDetail from "./components/workers/Workerdetail";
+import PrivateRoute from "./components/routing/PrivateRoute";
+
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+    <Fragment>
+      <Route exact path='/' component={Landing} />
+      <section >
+        <Switch>
+          <Route exact path="/register" component={Register} />
+          <PrivateRoute exact path="/dashboard" component={Dashboard} />
+          <PrivateRoute exact path="/workers" component={Workers} />
+          <PrivateRoute exact path="/:id" component={WorkerDetail} />
+        </Switch>
+      </section>
+    </Fragment>
+  </Router>
   );
 }
 
