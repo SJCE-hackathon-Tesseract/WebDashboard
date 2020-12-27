@@ -73,6 +73,7 @@ const RegisterRetailer = () => {
 
     const onRegisterSubmit =async (e)  =>{
       try {
+        console.log(registerData);
         e.preventDefault();
         const config = {
           headers: {
@@ -98,6 +99,7 @@ const RegisterRetailer = () => {
         const config = {
           headers: {
           'content-type': 'application/json'
+          // content-type is having cors error 
         }}
         const res  = await axios.post("http://dc90157b1306.ngrok.io/login",signInData,config)
         console.log(res)
