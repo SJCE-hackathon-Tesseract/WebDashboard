@@ -19,7 +19,7 @@ function App() {
     <Router>
     <Fragment>
       <Route exact path='/' component={Landing} />
-      <section >
+      <section>
         <Switch>
           <Route exact path="/register" component={Register} />
           <PrivateRoute exact path="/dashboard" component={Dashboard} />
