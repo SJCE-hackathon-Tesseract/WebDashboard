@@ -78,7 +78,7 @@ const RegisterRetailer = () => {
           headers: {
           'content-type': 'application/json'
         }}
-        const res  = await axios.post("http://dc90157b1306.ngrok.io/signup",registerData,config)
+        const res  = await axios.post("",registerData,config)
         if(res.data.success === true){
           localStorage.setItem('log', true)
           localStorage.setItem('name', registerData.username)
